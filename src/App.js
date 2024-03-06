@@ -1,6 +1,8 @@
-import "./App.css";
+import Body from "./components/Body";
 function App() {
-  return <div className="p-2 m-2 border border-black">Sahil</div>;
+  return (
+    <Body/>
+  );
 }
 
 export default App;
