@@ -4,7 +4,11 @@
 - Create React App
 - Configured Tailwind CSS
 - Header
+- Routing
 - Login Form/SignUp form
+- Form Validation
+- useRef Hook
+- Add FireBase authentication/ Deploy
 
 # Features
 - Login/Signup Page
@@ -21,3 +25,8 @@
 - NetflixGPT
     - Search Bar
     - Movie Suggestions
+
+- firebase login
+- firebase init
+- firebase deploy
+- npm install -g firebase-tools
