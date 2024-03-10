@@ -2,14 +2,23 @@ import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/Validate";
 import { auth } from "../utils/firbase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { adduser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignInform, setisSignInform] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  //const name = useRef(null);
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handletoggleSignInform = () => {
     setisSignInform(!isSignInform);
@@ -18,19 +27,38 @@ const Login = () => {
   const handleButtonClick = () => {
     const emailValue = email.current.value;
     const passwordValue = password.current.value;
-  
+
     const message = checkValidData(emailValue, passwordValue);
     console.log(message);
-    //setErrorMessage(message);
+    setErrorMessage(message);
     if (message) return;
-  
+
     if (!isSignInform) {
       createUserWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://avatars.githubusercontent.com/u/111983104?v=4",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                adduser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              navigate("/");
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
           console.log("Signed up:", user);
-          // ...
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -43,6 +71,7 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log("Signed in:", user);
+          navigate("/browse");
           // ...
         })
         .catch((error) => {
@@ -63,8 +92,8 @@ const Login = () => {
           className="w-full"
         />
       </div>
-      <div
-        //onSubmit={(e) => e.preventDefault()}
+      <form
+        onSubmit={(e) => e.preventDefault()}
         className="absolute p-6 sm:p-12 bg-black w-10/12 sm:w-3/12 my-36 mx-auto right-0 left-0 text-white bg-opacity-80 rounded-lg shadow-lg"
       >
         <h1 className="font-bold text-3xl my-2">
@@ -73,6 +102,7 @@ const Login = () => {
         {!isSignInform && (
           <input
             type="text"
+            ref={name}
             placeholder="Full Name"
             className="p-4 my-4 w-full bg-gray-700 rounded-lg"
             required
@@ -108,7 +138,7 @@ const Login = () => {
             ? "New User? Sign Up Now"
             : "Already registered? Sign In Now"}
         </p>
-      </div>
+      </form>
     </div>
   );
 };

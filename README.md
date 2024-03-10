@@ -9,6 +9,9 @@
 - Form Validation
 - useRef Hook
 - Add FireBase authentication/ Deploy
+- Implement SignIn User API
+- Create SignUp User 
+- Created Redux Store with userSlice
 
 # Features
 - Login/Signup Page
