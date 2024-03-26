@@ -28,6 +28,7 @@
 - Update Store with Trailer Video Data
 - Embedded the You tube video and make it autoplay and mute.
 - Tailwind Classes to make Container looks good.
+- Secondary Component
 
 # Features
 - Login/Signup Page
