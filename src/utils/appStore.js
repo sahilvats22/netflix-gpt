@@ -6,10 +6,10 @@ import configSlice from "./configSlice";
 
 const appStore = configureStore({
   reducer: {
-    user:userSlice,
-    movies:moviesSlice,
-    gpt:gptSlice,
-    config:configSlice,
+    user: userSlice,
+    movies: moviesSlice,
+    gpt: gptSlice,
+    config: configSlice,
   },
 });
 

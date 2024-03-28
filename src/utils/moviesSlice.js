@@ -33,6 +33,6 @@ export const {
   addTrailerVideo,
   addPopularMovies,
   addTopRatedMovies,
-  addUpcomingMovies
+  addUpcomingMovies,
 } = moviesSlice.actions;
 export default moviesSlice.reducer;

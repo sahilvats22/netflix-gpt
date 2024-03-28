@@ -14,12 +14,14 @@ const useMovieTrailer = (movieId) => {
       );
       const json = await response.json();
       console.log(json);
-      const filterData = json.results.filter((video) => video.type === "Trailer");
+      const filterData = json.results.filter(
+        (video) => video.type === "Trailer"
+      );
       const trailer = filterData.length ? filterData[0] : json.results[0];
       dispatch(addTrailerVideo(trailer));
       console.log(trailer);
     } catch (error) {
-      console.error('Error fetching movie videos:', error);
+      console.error("Error fetching movie videos:", error);
     }
   };
 
@@ -29,4 +31,3 @@ const useMovieTrailer = (movieId) => {
 };
 
 export default useMovieTrailer;
-
