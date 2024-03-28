@@ -9,7 +9,6 @@ const GptSearch = () => {
       <div className="absolute -z-10">
         <img alt="img" src={BG_IMG} className="w-full" />
       </div>
-
       <GptSearchBar />
       <GptMovieSuggestions />
     </div>
