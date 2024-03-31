@@ -5,6 +5,7 @@ import { addTopRatedMovies } from "../utils/moviesSlice";
 
 const useTopRatedMovies = () => {
   const dispatch = useDispatch();
+  const TopRatedMovies = useSelector(store => store.movies.topratedMovies);
   const getTopRatedMoviees = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
@@ -15,7 +16,7 @@ const useTopRatedMovies = () => {
     dispatch(addTopRatedMovies(json.results));
   };
   useEffect(() => {
-    getTopRatedMoviees();
+    !TopRatedMovies && getTopRatedMoviees();
   }, []);
 };
 
