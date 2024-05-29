@@ -54,16 +54,16 @@ const Header = () => {
       }
     });
     return () => unsubscribe();
-  }, []);
+  }, [dispatch, navigate]);
 
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black flex justify-between z-1">
-      <img className="w-56" alt="logo" src={Netflix_logo} />
+    <div className="absolute w-screen px-4 sm:px-8 py-2 bg-gradient-to-b from-black flex flex-col sm:flex-row justify-between items-center z-10">
+      <img className="w-32 sm:w-56 h-auto mb-2 sm:mb-0" alt="logo" src={Netflix_logo} />
       {user && (
-        <div className="flex items-center p-2">
+        <div className="flex items-center space-x-2">
           {showgptSearch && (
             <select
-              className="appearance-none mx-2 bg-gray-700 border border-gray text-white py-2 px-4  rounded-lg leading-tight focus:outline-none focus:border-gray-900 focus:ring-opacity-50"
+              className="appearance-none bg-gray-700 border border-gray-500 text-white py-2 px-4 rounded-lg leading-tight focus:outline-none focus:border-gray-900 focus:ring-opacity-50"
               onChange={handleLanguageChange}
               value={langSelector}
             >
@@ -76,14 +76,14 @@ const Header = () => {
           )}
 
           <button
-            className="py-2 px-4 mx-2 bg-purple-800 text-white rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
+            className="py-2 px-4 bg-purple-800 text-white rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
             onClick={handleGptClick}
           >
             {showgptSearch ? "HomePage" : "Gpt Search"}
           </button>
 
           <img
-            className="w-12 h-12 rounded-full mx-2"
+            className="w-12 sm:w-16 h-12 sm:h-16 rounded-full"
             alt="user-icon"
             src={user.photoURL}
           />

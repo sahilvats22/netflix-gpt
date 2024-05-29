@@ -79,58 +79,57 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="absolute w-full">
-        <Header />
-        <img alt="img" src={BG_IMG} className="w-full" />
-      </div>
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        className="absolute p-6 sm:p-12 bg-black w-10/12 sm:w-3/12 my-36 mx-auto right-0 left-0 text-white bg-opacity-80 rounded-lg shadow-lg"
-      >
-        <h1 className="font-bold text-3xl my-2">
-          {isSignInform ? "Sign In" : "Sign Up"}
-        </h1>
-        {!isSignInform && (
-          <input
-            type="text"
-            ref={name}
-            placeholder="Full Name"
-            className="p-4 my-4 w-full bg-gray-700 rounded-lg"
-            required
-          />
-        )}
+    <div className="relative min-h-screen bg-black">
+      <Header />
+      <img alt="background" src={BG_IMG} className="absolute top-0 left-0 w-full h-full object-cover z-0" />
+      <div className="px-4 md:px-8 lg:px-12 xl:px-20 flex justify-center items-center min-h-screen">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="p-6 sm:p-12 bg-black w-full sm:w-3/4 md:w-1/2 lg:w-1/3 text-white bg-opacity-80 rounded-lg shadow-lg z-10"
+        >
+          <h1 className="font-bold text-3xl my-2">
+            {isSignInform ? "Sign In" : "Sign Up"}
+          </h1>
+          {!isSignInform && (
+            <input
+              type="text"
+              ref={name}
+              placeholder="Full Name"
+              className="p-4 my-4 w-full bg-gray-700 rounded-lg"
+              required
+            />
+          )}
 
-        <input
-          ref={email}
-          type="text"
-          placeholder="Email Address"
-          className="p-4 my-4 w-full bg-gray-700 rounded-lg"
-        />
-        <input
-          ref={password}
-          type="password"
-          placeholder="Password"
-          className="p-4 my-4 w-full bg-gray-700 rounded-lg"
-        />
-        <button
-          className="p-4 my-6 bg-red-700 w-full rounded-lg"
-          onClick={handleButtonClick}
-        >
-          {isSignInform ? "Sign In" : "Sign Up"}
-        </button>
-        {errorMessage && (
-          <p className="p-2 text-red-400 font-bold text-lg">{errorMessage}</p>
-        )}
-        <p
-          className="py-4 cursor-pointer text-center"
-          onClick={handletoggleSignInform}
-        >
-          {isSignInform
-            ? "New User? Sign Up Now"
-            : "Already registered? Sign In Now"}
-        </p>
-      </form>
+          <input
+            ref={email}
+            type="text"
+            placeholder="Email Address"
+            className="p-4 my-4 w-full bg-gray-700 rounded-lg"
+          />
+          <input
+            ref={password}
+            type="password"
+            placeholder="Password"
+            className="p-4 my-4 w-full bg-gray-700 rounded-lg"
+          />
+          <button
+            className="p-4 my-6 bg-red-700 w-full rounded-lg"
+            onClick={handleButtonClick}
+          >
+            {isSignInform ? "Sign In" : "Sign Up"}
+          </button>
+          {errorMessage && (
+            <p className="p-2 text-red-400 font-bold text-lg">{errorMessage}</p>
+          )}
+          <p className="py-4 cursor-pointer text-center"
+            onClick={handletoggleSignInform}
+          >
+            {isSignInform
+              ? "New User? Sign Up Now"
+              : "Already registered? Sign In Now"}
+          </p>
+        </form>
+      </div>
     </div>
   );
 };
