@@ -1,60 +1,27 @@
-# create-react-app
-# configured Tailwind css
+1. **Install Dependencies**:
+   - Run the following command to install the necessary dependencies:
+        npm install
 
-- Create React App
-- Configured Tailwind CSS
-- Header
-- Routing
-- Login Form/SignUp form
-- Form Validation
-- useRef Hook
-- Add FireBase authentication/ Deploy
-- Implement SignIn User API
-- Create SignUp User 
-- Created Redux Store with userSlice
-- Implement Sign out
-- Update Profile
-- BugFix: Sign up user displayName and profile picture update
-- BugFix: If the user is not logged in Redirects /browse to Login Page and vice-versa.
-- Unsubscribed to the onAuthStateChanged callback
-- Created a constant file.
-- Registered TMDB API & create an app & get access token
-- Get Data from TMDB now playing movies list API
-- Custom Hook for Now Playing Movies
-- Create movieSlice
-- Update store with movies Data
-- Planning for MainContainer & secondary Container
-- Fetch Data with Trailer Video Data
-- Update Store with Trailer Video Data
-- Embedded the You tube video and make it autoplay and mute.
-- Tailwind Classes to make Container looks good.
-- Build Secondary Component
-- Build Movie List
-- Build Movie Card
-- TMDB Image CDN URL
-- Made the Browse page good with Tailwind CSS
-- usePopularMovies, useTopratedMovies, useUpcomingMovies custom hooks
-- GPT search Page
-- GPT Search bar
-- (FEATURE)- Multi-language in your app
+2. **Start the Application**:
+   - Navigate to `http://localhost:3000` in your web browser.
 
-# Features
-- Login/Signup Page
-    - Sign in/ Sign up Form
-    - redirects to Browse Page
-- Browse (After Authentication)
-    - Header
-    - Main Movie
-        - Trailer in BackGround
-        - Title and Description
-        - Movie Suggestion
-            - Movie List * N
+3. **Signup/Login**:
+   - Sign up or log in to access the homepage.
 
-- NetflixGPT
-    - Search Bar
-    - Movie Suggestions
+4. **TMDB API Issues**:
+   - If the TMDB API fails to fetch movies, try using a VPN with the following locations:
+     - USA (Austin)
+     - Australia (Melbourne)
 
-- firebase login
-- firebase init
-- firebase deploy
-- npm install -g firebase-tools
+5. **Search Functionality**:
+   - For the search functionality, click on the "GPT Search" button. This feature uses an OpenAI key which is disabled in the public repository. I have sent a zip file containing the necessary key for it to run properly.
+
+6. **Additional Features**:
+   - The search bar includes a language change feature.
+
+**Tech Stack**:
+- React: Frontend framework for building user interfaces.
+- Redux Toolkit: State management library for managing application state.
+- Firebase: Authentication service for signup and login functionality.
+- TMDB API: Source for fetching movie data.
+- OpenAI: Used for searching and retrieving movie links from TMDB.
