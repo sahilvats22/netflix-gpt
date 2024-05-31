@@ -1,4 +1,4 @@
-# Movie Search App
+# Movie Search App(NETFLIX_GPT)
 
 A React application for browsing and searching movies, integrated with Firebase Authentication and the TMDB API.
 
@@ -37,7 +37,8 @@ A React application for browsing and searching movies, integrated with Firebase 
   - Australia (Melbourne)
 - Use your own OpenAI key, otherwise the search functionality will not work.
 
-**Tech Stack**:
+## Tech Stack:
+
 - **React**: Frontend framework for building user interfaces.
 - **Redux Toolkit**: State management library for managing application state.
 - **Firebase**: Authentication service for signup and login functionality.
